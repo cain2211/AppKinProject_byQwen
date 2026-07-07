@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Identity;
+
 namespace ProjectFlow.Models;
 
 public class Task
@@ -5,8 +7,8 @@ public class Task
     public Guid Id { get; set; }
     public string Title { get; set; } = string.Empty;
     public string? Description { get; set; }
-    public TaskStatus Status { get; set; }
-    public Priority Priority { get; set; }
+    public string Status { get; set; } = "NotStarted";
+    public string Priority { get; set; } = "Medium";
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public int? EstimatedHours { get; set; }
@@ -26,22 +28,4 @@ public class Task
     public virtual ICollection<TaskAssignment> Assignments { get; set; } = new List<TaskAssignment>();
     public virtual ICollection<Comment> Comments { get; set; } = new List<Comment>();
     public virtual ICollection<Attachment> Attachments { get; set; } = new List<Attachment>();
-}
-
-public enum TaskStatus
-{
-    ToDo,
-    InProgress,
-    InReview,
-    Testing,
-    Done,
-    Blocked
-}
-
-public enum Priority
-{
-    Low,
-    Medium,
-    High,
-    Critical
 }
