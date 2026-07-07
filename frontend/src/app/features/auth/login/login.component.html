@@ -1,0 +1,62 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <div class="auth-header">
+      <mat-icon>folder_open</mat-icon>
+      <h1>Bienvenido</h1>
+      <p>Inicia sesión para gestionar tus proyectos</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="auth-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input 
+          matInput 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email"
+          placeholder="tu@email.com"
+          required
+          [disabled]="loading">
+        <mat-icon matPrefix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input 
+          matInput 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password"
+          placeholder="••••••••"
+          required
+          [disabled]="loading">
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+
+      @if (error) {
+        <div class="error-message">
+          <mat-icon>error</mat-icon>
+          <span>{{ error }}</span>
+        </div>
+      }
+
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit" 
+        class="full-width"
+        [disabled]="loading">
+        @if (loading) {
+          <mat-spinner diameter="20"></mat-spinner>
+        } @else {
+          <mat-icon>login</mat-icon>
+          Iniciar Sesión
+        }
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>¿No tienes cuenta? <a routerLink="/auth/register">Regístrate</a></p>
+    </div>
+  </mat-card>
+</div>

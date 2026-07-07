@@ -1,0 +1,101 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <div class="auth-header">
+      <mat-icon>person_add</mat-icon>
+      <h1>Crear Cuenta</h1>
+      <p>Regístrate para comenzar a gestionar proyectos</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" class="auth-form">
+      <div class="name-row">
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Nombre</mat-label>
+          <input 
+            matInput 
+            type="text" 
+            [(ngModel)]="firstName" 
+            name="firstName"
+            placeholder="Juan"
+            required
+            [disabled]="loading">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+          <mat-label>Apellido</mat-label>
+          <input 
+            matInput 
+            type="text" 
+            [(ngModel)]="lastName" 
+            name="lastName"
+            placeholder="Pérez"
+            required
+            [disabled]="loading">
+        </mat-form-field>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input 
+          matInput 
+          type="email" 
+          [(ngModel)]="email" 
+          name="email"
+          placeholder="tu@email.com"
+          required
+          [disabled]="loading">
+        <mat-icon matPrefix>email</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Contraseña</mat-label>
+        <input 
+          matInput 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password"
+          placeholder="Mínimo 6 caracteres"
+          required
+          [disabled]="loading">
+        <mat-icon matPrefix>lock</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Confirmar Contraseña</mat-label>
+        <input 
+          matInput 
+          type="password" 
+          [(ngModel)]="confirmPassword" 
+          name="confirmPassword"
+          placeholder="Repite tu contraseña"
+          required
+          [disabled]="loading">
+        <mat-icon matPrefix>lock_outline</mat-icon>
+      </mat-form-field>
+
+      @if (error) {
+        <div class="error-message">
+          <mat-icon>error</mat-icon>
+          <span>{{ error }}</span>
+        </div>
+      }
+
+      <button 
+        mat-raised-button 
+        color="primary" 
+        type="submit" 
+        class="full-width"
+        [disabled]="loading">
+        @if (loading) {
+          <mat-spinner diameter="20"></mat-spinner>
+        } @else {
+          <mat-icon>person_add</mat-icon>
+          Registrarse
+        }
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>¿Ya tienes cuenta? <a routerLink="/auth/login">Inicia sesión</a></p>
+    </div>
+  </mat-card>
+</div>
