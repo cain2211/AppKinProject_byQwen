@@ -5,7 +5,7 @@ public class Project
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string? Description { get; set; }
-    public ProjectStatus Status { get; set; }
+    public string Status { get; set; } = "Planning";
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
     public DateTime CreatedDate { get; set; }
@@ -16,13 +16,4 @@ public class Project
     // Navegación
     public virtual ICollection<ProjectMember> Members { get; set; } = new List<ProjectMember>();
     public virtual ICollection<Task> Tasks { get; set; } = new List<Task>();
-}
-
-public enum ProjectStatus
-{
-    Planning,
-    InProgress,
-    OnHold,
-    Completed,
-    Cancelled
 }

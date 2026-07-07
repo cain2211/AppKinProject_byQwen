@@ -1,38 +1,43 @@
 ```
+# Build artifacts
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+*.o
+*.obj
+*.a
+*.lib
+*.out
+
 # Dependencies
+packages/
 node_modules/
-
-# Build outputs
-dist/
-build/
-coverage/
-
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# IDE specific
-.vscode/
-.idea/
-*.swp
-*.swo
-*.tmp
-
-# OS specific
-.DS_Store
-Thumbs.db
+bower_components/
+vendor/
 
 # Logs
 *.log
+logs/
 
-# Python cache (if any Python components)
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
+# Environment specific
+.env
+.env.local
+.env.*
 
-# Dotnet/ASP.NET specific
-bin/
-obj/
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+*.user
+*.userosscache
+*.suo
+*.userprefs
+.vs/
 ```

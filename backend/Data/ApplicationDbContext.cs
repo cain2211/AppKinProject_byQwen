@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using ProjectFlow.Models;
 
 namespace ProjectFlow.Data;
 
@@ -11,7 +12,7 @@ public class ApplicationDbContext : IdentityDbContext
     }
 
     public DbSet<Project> Projects => Set<Project>();
-    public DbSet<Task> Tasks => Set<Task>();
+    public DbSet<Models.Task> Tasks => Set<Models.Task>();
     public DbSet<ProjectMember> ProjectMembers => Set<ProjectMember>();
     public DbSet<TaskAssignment> TaskAssignments => Set<TaskAssignment>();
     public DbSet<Comment> Comments => Set<Comment>();
@@ -36,7 +37,7 @@ public class ApplicationDbContext : IdentityDbContext
         });
 
         // Configurar Task
-        modelBuilder.Entity<Task>(entity =>
+        modelBuilder.Entity<Models.Task>(entity =>
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Title).IsRequired().HasMaxLength(200);
