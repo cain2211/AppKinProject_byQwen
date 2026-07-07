@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectFlow.Data;
 using ProjectFlow.DTOs;
 using ProjectFlow.Models;
+using TaskModel = ProjectFlow.Models.Task;
 
 namespace ProjectFlow.Services;
 

@@ -1,43 +1,52 @@
 ```
 # Build artifacts
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
 *.dll
 *.exe
 *.pdb
 *.so
 *.dylib
-*.o
-*.obj
-*.a
-*.lib
-*.out
+*.jar
+*.war
+*.class
 
 # Dependencies
 packages/
 node_modules/
-bower_components/
+**/node_modules/
 vendor/
 
 # Logs
 *.log
 logs/
 
-# Environment specific
+# Environment
 .env
 .env.local
 .env.*
 
-# OS generated files
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
 .DS_Store
 Thumbs.db
-desktop.ini
 
-# Visual Studio Code
-.vscode/
+# Testing
+**/TestResults/
+coverage/
+htmlcov/
+*.coverage
 
-# Visual Studio
-*.user
-*.userosscache
-*.suo
-*.userprefs
-.vs/
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
 ```
