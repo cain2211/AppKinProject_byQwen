@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 using TaskModel = ProjectFlow.Models.Task;
 
 namespace ProjectFlow.Services;
@@ -141,8 +142,8 @@ public class AuthService : IAuthService
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddMinutes(_jwtSettings.ExpirationInMinutes),
             SigningCredentials = credentials,
-            Issuer = _jwtSettings.ValidIssuer,
-            Audience = _jwtSettings.ValidAudience
+            Issuer = _jwtSettings.Issuer,
+            Audience = _jwtSettings.Audience
         };
 
         var handler = new JwtSecurityTokenHandler();
@@ -167,8 +168,8 @@ public class AuthService : IAuthService
             ValidateIssuer = true,
             ValidateIssuerSigningKey = true,
             ValidateLifetime = false,
-            ValidIssuer = _jwtSettings.ValidIssuer,
-            ValidAudience = _jwtSettings.ValidAudience,
+            ValidIssuer = _jwtSettings.Issuer,
+            ValidAudience = _jwtSettings.Audience,
             IssuerSigningKey = new SymmetricSecurityKey(key)
         };
 
