@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ProjectFlow.Data;
 using ProjectFlow.DTOs;
 using ProjectFlow.Models;
+using TaskModel = ProjectFlow.Models.Task;
 
 namespace ProjectFlow.Services;
 
@@ -40,7 +41,7 @@ public class TaskService : ITaskService
 
     public async Task<TaskDto> CreateAsync(CreateTaskDto model, string? userId)
     {
-        var task = new Models.Task
+        var task = new TaskModel
         {
             Id = Guid.NewGuid(),
             Title = model.Title,

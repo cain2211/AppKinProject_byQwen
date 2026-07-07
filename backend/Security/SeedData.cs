@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using ProjectFlow.Models;
+using System.Threading.Tasks;
 
 namespace ProjectFlow.Security;
 
